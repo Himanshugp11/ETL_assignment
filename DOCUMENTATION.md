@@ -50,11 +50,12 @@ Since the external message-generator binary was unavailable, a Python-based gene
 
 PowerShell
 python src/mock_generator.py
+
 Step 2: Event Processing
 Run the main processing script to consume events from SQS, transform them, and persist them to the database.
 
 PowerShell
-python src/fina_main.py
+python src/final_main.py
 
 ==========================================================================
 
