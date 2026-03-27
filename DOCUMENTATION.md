@@ -1,4 +1,5 @@
 1. Build Requirements
+   
 To build and run this tool, the following must be installed on the host system:
 
 Python 3.10+ (Developed and tested using Python 3.14).
@@ -10,12 +11,14 @@ Pip: Python package manager for installing dependencies.
 LocalStack Account: For accessing the LocalStack Web Dashboard at app.localstack.cloud and publish the message in SQS.
 
 ==========================================================================
+
 Dependencies
 The tool requires the following Python libraries:
 
 boto3: AWS SDK for Python to interact with SQS.
 
 psycopg2-binary: PostgreSQL adapter for Python database connectivity.
+
 ===========================================================================
 2. Configuration & Environment Setup
 Step 1: Virtual Environment
@@ -38,7 +41,9 @@ A local PostgreSQL instance is used for data persistence.
 
 PowerShell
 docker run -d --name local-datastore -e POSTGRES_USER=admin -e POSTGRES_PASSWORD=****** -e POSTGRES_DB=**** -p 5432:5432 postgres:16-alpine
+
 ==========================================================================
+
 3. How to Run the Tool
 Step 1: Data Generation
 Since the external message-generator binary was unavailable, a Python-based generator is used to simulate the interview data (including malformed, route-based, and location-based messages).
@@ -52,6 +57,7 @@ PowerShell
 python src/fina_main.py
 
 ==========================================================================
+
 4. Usage & Parameters
 The tool operates as a headless CLI utility designed for automated ETL tasks.
 
@@ -60,7 +66,9 @@ Connection Defaults: The tool automatically routes to localhost:4566 (SQS) and l
 Idempotency: On execution, the tool automatically checks for the existence of the trip_events table and creates it if missing.
 
 Queue Cleanup: In accordance with the requirements, the tool utilizes a "Delete-on-Success" pattern, ensuring the SQS queue is completely empty after the final event is persisted.
+
 =========================================================================
+
 5. Challenges & Solutions
 Missing Message Generator Binary
 Challenge: The expected windows.exe generator was not present in the local directory.
