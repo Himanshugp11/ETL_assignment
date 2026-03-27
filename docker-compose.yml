@@ -1,0 +1,17 @@
+version: '2.2'
+
+services:
+
+  interview-localstack:
+    image: localstack/localstack
+    ports:
+      - "4566:4566"
+    environment:
+      - DEFAULT_REGION=ap-south-1
+      - SERVICES=sqs
+      - DEBUG=${DEBUG- }
+      - DATA_DIR=${DATA_DIR- }
+      - DOCKER_HOST=unix:///var/run/docker.sock
+    volumes:
+      - "/var/run/docker.sock:/var/run/docker.sock"
+
