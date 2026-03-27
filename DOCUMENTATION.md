@@ -37,7 +37,7 @@ PostgreSQL Database:
 A local PostgreSQL instance is used for data persistence.
 
 PowerShell
-docker run -d --name local-datastore -e POSTGRES_USER=admin -e POSTGRES_PASSWORD=password123 -e POSTGRES_DB=events_db -p 5432:5432 postgres:16-alpine
+docker run -d --name local-datastore -e POSTGRES_USER=admin -e POSTGRES_PASSWORD=****** -e POSTGRES_DB=**** -p 5432:5432 postgres:16-alpine
 ==========================================================================
 3. How to Run the Tool
 Step 1: Data Generation
